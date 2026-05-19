@@ -15,20 +15,35 @@
         <div id="game"></div>
     </div>
 
-   <script>
-    EJS_player = '#game';
-    EJS_core = 'gba'; 
-    
-    // Adding "?v=2" to the end tricks the browser extension into ignoring the cache!
-    EJS_gameUrl = 'POKEMONFR.zip?v=2'; 
-    
-    EJS_pathtodata = 'https://jsdelivr.net';
-    EJS_pathToData = 'https://jsdelivr.net'; 
-</script>
-<script src="https://jsdelivr.netloader.js"></script>
+    <script>
+        // Securely fetches the zip file as raw binary data to bypass extension header blocks
+        async function launchEmulator() {
+            try {
+                // CHANGE THESE TO YOUR EXACT GITHUB USERNAME AND REPO NAME:
+                const romUrl = 'https://github.com/earif29-blip/jsemu/raw/refs/heads/main/POKEMONFR.zip';
+                
+                const response = await fetch(romUrl);
+                const blob = await response.blob();
+                const secureGameUrl = URL.createObjectURL(blob);
 
-    
-    <!-- Launches the optimized cloud loader script -->
-    <script src="https://jsdelivr.netloader.js"></script>
+                // Initialize the emulator settings using the secure Blob URL
+                window.EJS_player = '#game';
+                window.EJS_core = 'gba'; 
+                window.EJS_gameUrl = secureGameUrl; 
+                
+                window.EJS_pathtodata = 'https://emulatorjs.org';
+                window.EJS_pathToData = 'https://emulatorjs.org'; 
+
+                // Dynamically inject the loader script after the game data is securely pre-loaded
+                const script = document.createElement('script');
+                script.src = 'https://emulatorjs.orgloader.js';
+                document.body.appendChild(script);
+            } catch (error) {
+                console.error("Failed to safely bundle game file:", error);
+            }
+        }
+
+        launchEmulator();
+    </script>
 </body>
 </html>
