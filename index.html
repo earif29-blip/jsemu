@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Retro Emulator</title>
     <style>
-        body { margin: 0; background: #000; }
+        body { margin: 0; background: #000; padding: 0; overflow: hidden; }
         #game-container { width: 100vw; height: 100vh; }
     </style>
 </head>
@@ -17,14 +17,13 @@
 
     <script>
         EJS_player = '#game';
-        EJS_core = 'gba'; // Change to your system (e.g., 'nes', 'snes')
-        EJS_gameUrl = 'POKEMONFR.gba'; // Must match your uploaded filename exactly
+        EJS_core = 'gba'; 
+        EJS_gameUrl = 'POKEMONFR.gba'; // MUST match your exact filename case-sensitively!
         
-        // This links directly to the official cloud files instead of a folder!
-        EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/'; 
+        // Note the capital T and D on EJS_pathToData below:
+        EJS_pathToData = 'https://emulatorjs.org'; 
     </script>
     
-    <!-- This loads the script directly from the web -->
-    <script src="https://emulatorjs.org"></script>
+    <script src="https://emulatorjs.orgloader.js"></script>
 </body>
 </html>
