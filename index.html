@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Retro Emulator</title>
     <style>
-        body { margin: 0; background: #000; padding: 0; overflow: hidden; }
+        body, html { margin: 0; padding: 0; background: #000; overflow: hidden; }
         #game-container { width: 100vw; height: 100vh; }
     </style>
 </head>
@@ -16,17 +16,17 @@
     </div>
 
     <script>
-    EJS_player = '#game';
-    EJS_core = 'gba'; 
+        EJS_player = '#game';
+        EJS_core = 'gba'; 
+        
+        // Make sure this is your EXACT raw .zip link!
+        EJS_gameUrl = 'https://github.com/earif29-blip/jsemu/raw/refs/heads/main/POKEMONFR.zip'; 
+        
+        // Switched to unpkg network to bypass school extension blocks
+        EJS_pathtodata = 'https://unpkg.com';
+        EJS_pathToData = 'https://unpkg.com'; 
+    </script>
     
-    // Paste your copied link right here:
-    EJS_gameUrl = 'https://githubusercontent.com'; 
-    
-    EJS_pathtodata = 'https://emulatorjs.org';
-    EJS_pathToData = 'https://emulatorjs.org'; 
-</script>
-
-    
-    <script src="https://emulatorjs.orgloader.js"></script>
+    <script src="https://unpkg.comloader.js"></script>
 </body>
 </html>
