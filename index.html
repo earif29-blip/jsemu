@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Dashboard</title>
+    <title>My Retro Arcade</title>
     <style>
-        body, html { margin: 0; padding: 0; background: #111; overflow: hidden; color: white; font-family: sans-serif; }
-        #game-container { width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
-        #game { width: 100%; height: 100%; }
+        body, html { margin: 0; padding: 0; background: #000; overflow: hidden; width: 100%; height: 100%; }
+        #game-container { width: 100vw; height: 100vh; position: absolute; top: 0; left: 0; }
     </style>
 </head>
 <body>
@@ -16,18 +15,20 @@
         <div id="game"></div>
     </div>
 
-    <script>
-        EJS_player = '#game';
-        EJS_core = 'gba'; 
-        
-        // PASTE YOUR EXACT RAW ZIP LINK HERE
-        EJS_gameUrl = 'https://github.com/earif29-blip/jsemu/raw/refs/heads/main/POKEMONFR.zip'; 
-        
-        // This relies on an open open-source hub that filters can't easily shut down
-        EJS_pathtodata = 'https://jsdelivr.net';
-        EJS_pathToData = 'https://jsdelivr.net'; 
-    </script>
+   <script>
+    EJS_player = '#game';
+    EJS_core = 'gba'; 
     
+    // Adding "?v=2" to the end tricks the browser extension into ignoring the cache!
+    EJS_gameUrl = 'POKEMONFR.zip?v=2'; 
+    
+    EJS_pathtodata = 'https://jsdelivr.net';
+    EJS_pathToData = 'https://jsdelivr.net'; 
+</script>
+<script src="https://jsdelivr.netloader.js"></script>
+
+    
+    <!-- Launches the optimized cloud loader script -->
     <script src="https://jsdelivr.netloader.js"></script>
 </body>
 </html>
